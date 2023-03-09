@@ -42,4 +42,17 @@ public class ExampleController {
         user.setRandom(new Random().nextInt(100));
         return user;
     }
+
+    //  http://localhost:9090/example/pathexam/어떤특정값
+    @GetMapping("/pathexam/{id}")
+    public String pathExam(@PathVariable(name = "id") String id) {
+        System.out.println(id);
+        return "pathexam";
+    }
+
+    @GetMapping("/headerexam")
+    public String headerExam(@RequestHeader(name = "User-Agent") String userAgent) {
+        System.out.println(userAgent);
+        return "headerexam";
+    }
 }
